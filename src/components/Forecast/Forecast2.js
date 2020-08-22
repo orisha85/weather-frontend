@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Conditions from '../Conditions/Conditions';
 import classes from './Forecast.module.css'
 
-const Forecast = () => {
+const Forecast2 = () => {
     let [city, setCity] = useState('');
     let [responseObj, setResponseObj] = useState({});
     let [error, setError] = useState(false);
@@ -21,7 +21,7 @@ const Forecast = () => {
         setResponseObj({});       
         setLoading(true);
 
-        fetch(`https://weatherapi-backend-as.azurewebsites.net/api/WeatherAPI/${uriEncodedCity}`, {
+        fetch(`https://weatherapi-am.azure-api.net/weather?q=${uriEncodedCity}`, {
             "method": "GET",
         })
         .then(response => response.json())
@@ -42,7 +42,7 @@ const Forecast = () => {
     return (
         <div>
            <h2>Find Current Weather Conditions</h2>
-           <h2>Using .Net Core API</h2>
+           <h2>Using Azure Web API Management</h2>
            <form onSubmit={getForecast}>
            <input
                     type="text"
@@ -63,4 +63,4 @@ const Forecast = () => {
     )
 }
 
-export default Forecast;
+export default Forecast2;
