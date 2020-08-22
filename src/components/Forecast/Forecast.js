@@ -8,6 +8,7 @@ const Forecast = () => {
     let [error, setError] = useState(false);
     let [loading, setLoading] = useState(false);
     const uriEncodedCity = encodeURIComponent(city);
+
     function getForecast(e) {
 
         e.preventDefault();
@@ -20,8 +21,7 @@ const Forecast = () => {
         setResponseObj({});       
         setLoading(true);
 
-        fetch(`
-        https://weatherapi-backend.azurewebsites.net/api/WeatherAPI/${uriEncodedCity}`, {
+        fetch(`https://weatherapi-backend-as.azurewebsites.net/api/WeatherAPI/${uriEncodedCity}`, {
             "method": "GET",
         })
         .then(response => response.json())
