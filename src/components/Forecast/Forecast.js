@@ -8,12 +8,14 @@ const Forecast = () => {
     let [error, setError] = useState(false);
     let [loading, setLoading] = useState(false);
     const uriEncodedCity = encodeURIComponent(city);
+    let letters = /^[A-Za-z]+$/;
 
     function getForecast(e) {
 
         e.preventDefault();
 
-        if (city.length === 0) {
+        if (city.length === 0 || !(city.match(letters)) ) {
+            setResponseObj({}); 
             return setError(true);
         }
 
